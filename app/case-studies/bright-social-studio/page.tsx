@@ -73,7 +73,7 @@ export default function BrightSocialStudio() {
                 </li>
                 <li className="flex items-start">
                   <span className="text-foreground mr-3 mt-1">→</span>
-                  <span>Built a live Looker Studio dashboard pulling real-time data</span>
+                  <span>Built a live Looker Studio dashboard with 4 specialized pages: Performance Overview, Client Breakdown, Optimization Insights, and Automated Alerts</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-foreground mr-3 mt-1">→</span>
@@ -106,6 +106,160 @@ export default function BrightSocialStudio() {
                 height={400}
                 className="object-cover w-full h-full"
               />
+            </div>
+          </div>
+
+          {/* Dashboard Deep Dive */}
+          <div className="mt-16 pt-16 border-t border-border/50">
+            <h2 className="text-2xl font-medium text-foreground mb-6">
+              Inside the dashboard: Four pages that tell the complete story
+            </h2>
+            
+            <p className="text-muted-foreground leading-relaxed mb-12">
+              Instead of one overwhelming spreadsheet, we built a system that guides you from overview to action. 
+              Each page answers a specific question that agency teams ask every day.
+            </p>
+
+            {/* Page 1: Performance Overview */}
+            <div className="mb-16">
+              <div className="flex items-start gap-4 mb-6">
+                <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-foreground text-background flex items-center justify-center text-lg font-semibold">
+                  1
+                </div>
+                <div>
+                  <h3 className="text-xl font-medium text-foreground mb-2">Performance Overview</h3>
+                  <p className="text-muted-foreground italic">"How are we doing overall?"</p>
+                </div>
+              </div>
+              
+              <div className="bg-card border border-border rounded-2xl p-6 mb-6">
+                <p className="text-sm text-muted-foreground mb-4">
+                  The first thing Nadia sees every morning. Six key metrics at the top — total impressions, clicks, CTR, spend, 
+                  conversions, and ROAS — give her the agency's health in 3 seconds. Below that, line charts show how spend and 
+                  revenue move together over time, and a side-by-side comparison reveals whether Meta or TikTok is delivering better returns.
+                </p>
+                <div className="rounded-xl overflow-hidden border border-border bg-muted aspect-video flex items-center justify-center">
+                  <Image
+                    src="/images/dashboard-page-1-overview.jpg"
+                    alt="Dashboard Page 1: Performance Overview with KPIs and trend charts"
+                    width={800}
+                    height={450}
+                    className="object-cover w-full h-full"
+                  />
+                </div>
+              </div>
+              <p className="text-sm text-muted-foreground italic">
+                "Before, I'd spend 20 minutes just adding up numbers. Now I see everything in one glance."
+              </p>
+            </div>
+
+            {/* Page 2: Client Breakdown */}
+            <div className="mb-16">
+              <div className="flex items-start gap-4 mb-6">
+                <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-foreground text-background flex items-center justify-center text-lg font-semibold">
+                  2
+                </div>
+                <div>
+                  <h3 className="text-xl font-medium text-foreground mb-2">Client Breakdown</h3>
+                  <p className="text-muted-foreground italic">"Which clients are hitting their targets?"</p>
+                </div>
+              </div>
+              
+              <div className="bg-card border border-border rounded-2xl p-6 mb-6">
+                <p className="text-sm text-muted-foreground mb-4">
+                  Each client gets their own view. Select "Café Botanica" from the dropdown and instantly see only their campaigns — 
+                  spend, revenue, ROAS, and conversions isolated. A detailed table breaks down every campaign by platform, 
+                  and trend lines show whether performance is climbing or declining. When a client asks for their numbers, 
+                  Nadia just filters to their name and shares the link.
+                </p>
+                <div className="rounded-xl overflow-hidden border border-border bg-muted aspect-video flex items-center justify-center">
+                  <Image
+                    src="/images/dashboard-page-2-client.jpg"
+                    alt="Dashboard Page 2: Client-specific performance with filterable campaigns"
+                    width={800}
+                    height={450}
+                    className="object-cover w-full h-full"
+                  />
+                </div>
+              </div>
+              <p className="text-sm text-muted-foreground italic">
+                "Clients love that they can explore their own data. They feel more in control, and I get fewer 'quick question' emails."
+              </p>
+            </div>
+
+            {/* Page 3: Optimization Insights */}
+            <div className="mb-16">
+              <div className="flex items-start gap-4 mb-6">
+                <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-foreground text-background flex items-center justify-center text-lg font-semibold">
+                  3
+                </div>
+                <div>
+                  <h3 className="text-xl font-medium text-foreground mb-2">Optimization Insights</h3>
+                  <p className="text-muted-foreground italic">"Where should we focus our attention?"</p>
+                </div>
+              </div>
+              
+              <div className="bg-card border border-border rounded-2xl p-6 mb-6">
+                <p className="text-sm text-muted-foreground mb-4">
+                  This is where strategy happens. Scatter plots reveal which campaigns are getting cheap conversions versus expensive ones. 
+                  Heatmaps show which days and platforms are firing on all cylinders. CTR trends expose creative fatigue before it tanks performance. 
+                  It's not just data — it's a map showing exactly where to optimize next.
+                </p>
+                <div className="rounded-xl overflow-hidden border border-border bg-muted aspect-video flex items-center justify-center">
+                  <Image
+                    src="/images/dashboard-page-3-insights.jpg"
+                    alt="Dashboard Page 3: Cost efficiency analysis and optimization opportunities"
+                    width={800}
+                    height={450}
+                    className="object-cover w-full h-full"
+                  />
+                </div>
+              </div>
+              <p className="text-sm text-muted-foreground italic">
+                "We used to make decisions based on gut feeling. Now we see exactly which campaigns need new creative or better targeting."
+              </p>
+            </div>
+
+            {/* Page 4: Alerts & Recommendations */}
+            <div className="mb-16">
+              <div className="flex items-start gap-4 mb-6">
+                <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-foreground text-background flex items-center justify-center text-lg font-semibold">
+                  4
+                </div>
+                <div>
+                  <h3 className="text-xl font-medium text-foreground mb-2">Alerts & Recommendations</h3>
+                  <p className="text-muted-foreground italic">"What needs fixing right now?"</p>
+                </div>
+              </div>
+              
+              <div className="bg-card border border-border rounded-2xl p-6 mb-6">
+                <p className="text-sm text-muted-foreground mb-4">
+                  The proactive layer. A scorecard at the top shows how many campaigns are below target ROAS or struggling with low CTR. 
+                  Below that, a prioritized list of action items — "Weekend Brunch Promo needs creative refresh" or "Fitness Challenge: 
+                  reduce CPC by tightening audience targeting." No more hunting for problems. The system surfaces them automatically.
+                </p>
+                <div className="rounded-xl overflow-hidden border border-border bg-muted aspect-video flex items-center justify-center">
+                  <Image
+                    src="/images/dashboard-page-4-alerts.jpg"
+                    alt="Dashboard Page 4: Automated alerts flagging underperforming campaigns"
+                    width={800}
+                    height={450}
+                    className="object-cover w-full h-full"
+                  />
+                </div>
+              </div>
+              <p className="text-sm text-muted-foreground italic">
+                "This page alone saves us hours. Instead of digging through data looking for issues, the dashboard tells us exactly what to fix."
+              </p>
+            </div>
+
+            <div className="bg-gradient-to-br from-card to-muted/20 border border-border rounded-2xl p-8 mt-12">
+              <p className="text-foreground font-medium mb-2">The result?</p>
+              <p className="text-muted-foreground">
+                Four pages that work together like chapters in a book. Page 1 tells you where you stand. Page 2 zooms into each client. 
+                Page 3 shows where to optimize. Page 4 flags what needs immediate attention. Every morning, Nadia walks through this exact 
+                flow — and it takes her less time than making coffee.
+              </p>
             </div>
           </div>
 
