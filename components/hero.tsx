@@ -18,8 +18,10 @@ export function Hero() {
           <div className="mb-10 flex justify-center animate-fade-in-down">
             <div className="inline-flex items-center gap-2.5 rounded-full border border-zinc-200 bg-white/80 backdrop-blur-sm px-4 py-2 text-sm font-medium text-zinc-700 shadow-sm">
               <span className="relative flex h-1.5 w-1.5">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-zinc-900 opacity-40" />
-                <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-zinc-900" />
+                {/* Animated ping */}
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#FF5C26] opacity-40" />
+                {/* Solid dot */}
+                <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-[#FF5C26]" />
               </span>
               <span className="tracking-tight">Based in Malaysia · Built for the world</span>
             </div>
@@ -27,21 +29,20 @@ export function Hero() {
 
           {/* Hero headline - iPhone-style precision */}
           <h1 className="text-center text-5xl font-semibold tracking-[-0.02em] text-zinc-900 sm:text-6xl lg:text-7xl xl:text-8xl animate-fade-in leading-[1.1]">
-            Systems that think.
+            Systems that <span className="text-[#FF5C26]">think.</span>
             <br />
             <span className="text-zinc-500">Teams that move.</span>
           </h1>
 
-          {/* Supporting copy - clean and direct */}
           <p className="mx-auto mt-8 max-w-2xl text-center text-lg leading-relaxed text-zinc-600 sm:text-xl lg:text-2xl animate-fade-in-up font-normal">
             We build invisible infrastructure. The kind that connects your tools, eliminates manual work, and gives your team time back.
           </p>
 
           {/* CTA group - sophisticated spacing */}
           <div className="mt-12 flex flex-col items-center justify-center gap-3 sm:flex-row animate-fade-in-up">
-            <Button 
-              size="lg" 
-              className="group h-12 w-full rounded-full bg-zinc-900 px-8 text-base font-medium text-white shadow-lg shadow-zinc-900/10 transition-all hover:bg-zinc-800 hover:shadow-xl hover:shadow-zinc-900/20 sm:w-auto"
+            <Button
+              size="lg"
+              className="group h-12 w-full rounded-full bg-[#FF5C26] px-8 text-base font-medium text-white shadow-lg shadow-[#FF5C26]/20 transition-all hover:bg-[#e14d1f] hover:shadow-xl hover:shadow-[#FF5C26]/30 sm:w-auto"
             >
               Book intro call
               <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-0.5" />
@@ -49,7 +50,7 @@ export function Hero() {
             <Button 
               size="lg" 
               variant="outline" 
-              className="h-12 w-full rounded-full border-zinc-300 bg-white/50 backdrop-blur-sm px-8 text-base font-medium text-zinc-900 transition-all hover:bg-white hover:border-zinc-400 sm:w-auto"
+              className="h-12 w-full rounded-full border-zinc-300 bg-white/50 backdrop-blur-sm px-8 text-base font-medium text-zinc-900 transition-all hover:bg-[#FF5C26]/10 hover:border-[#FF5C26] hover:text-[#FF5C26] sm:w-auto"
             >
               See case studies
             </Button>
@@ -75,17 +76,3 @@ export function Hero() {
     </section>
   )
 }
-
-// Add these animations to your global CSS or Tailwind config
-// @keyframes fade-in-down {
-//   0% { opacity: 0; transform: translateY(-10px); }
-//   100% { opacity: 1; transform: translateY(0); }
-// }
-// @keyframes fade-in {
-//   0% { opacity: 0; }
-//   100% { opacity: 1; }
-// }
-// @keyframes fade-in-up {
-//   0% { opacity: 0; transform: translateY(10px); }
-//   100% { opacity: 1; transform: translateY(0); }
-// }
