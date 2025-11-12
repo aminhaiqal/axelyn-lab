@@ -38,7 +38,7 @@ export function CaseHighlights() {
   }, [])
 
   return (
-    <section ref={sectionRef} className="border-b border-[#E8E8DE]/50 bg-[#F3F3EE] py-24 sm:py-32 lg:py-40">
+    <section ref={sectionRef} className="bg-[#FFFFFF] py-24 sm:py-32 lg:py-40">
       <div className="mx-auto max-w-6xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-3xl font-medium tracking-tight text-[#232627] sm:text-4xl lg:text-5xl">
@@ -46,20 +46,28 @@ export function CaseHighlights() {
           </h2>
         </div>
 
-        <div className="mt-16 space-y-6">
+        <div className="mt-16 flex justify-center">
           {cases.map((caseItem, index) => (
             <Link
               key={index}
               href={caseItem.href}
-              className="block case-card group rounded-2xl border border-[#E8E8DE] bg-white p-8 transition-all hover:border-[#FF5C26] hover:shadow-lg lg:p-10"
+              className="case-card group relative rounded-3xl bg-[#FF5C26] p-10 transition-all hover:shadow-2xl max-w-[500px] w-full aspect-[1/1] flex flex-col justify-between"
             >
-              <h3 className="text-2xl font-medium text-[#232627] flex items-center justify-between">
-                {caseItem.title}
-                <ArrowRight className="h-5 w-5 text-[#FF5C26] opacity-0 group-hover:opacity-100 transition-all group-hover:translate-x-1" />
-              </h3>
-              <p className="mt-4 text-lg leading-relaxed text-[#2A2A25]/70">
-                {caseItem.description}
-              </p>
+              <div>
+                <h3 className="text-3xl font-semibold text-white flex items-center justify-between">
+                  {caseItem.title}
+                  <ArrowRight className="h-6 w-6 text-white opacity-0 group-hover:opacity-100 transition-all group-hover:translate-x-2" />
+                </h3>
+                <p className="mt-6 text-lg leading-relaxed text-white/90">
+                  {caseItem.description}
+                </p>
+              </div>
+
+              <div className="mt-6 text-center">
+                <span className="inline-flex items-center justify-center bg-white text-[#FF5C26] font-medium px-6 py-3 rounded-full shadow-md transition-all group-hover:translate-y-[-2px] group-hover:shadow-lg">
+                  View Case Study
+                </span>
+              </div>
             </Link>
           ))}
         </div>
