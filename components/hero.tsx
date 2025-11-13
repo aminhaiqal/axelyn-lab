@@ -23,19 +23,19 @@ export function Hero() {
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzIzMjYyNyIgc3Ryb2tlLW9wYWNpdHk9IjAuMDMiIHN0cm9rZS13aWR0aD0iMSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmlkKSIvPjwvc3ZnPg==')] opacity-40" />
       </div>
 
-      <div className="relative mx-auto max-w-7xl px-6 py-20 sm:py-24 lg:px-8">
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24">
         <div className="mx-auto max-w-5xl">
           
           {/* Animated Badge */}
-          <div className={`mb-8 flex justify-center transition-all duration-1000 ${
+          <div className={`mb-6 sm:mb-8 flex justify-center transition-all duration-1000 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4"
           }`}>
-            <div className="inline-flex items-center gap-2.5 rounded-full bg-white border-2 border-[#E8E8DE] px-5 py-2.5 shadow-lg">
+            <div className="inline-flex items-center gap-2 sm:gap-2.5 rounded-full bg-white border-2 border-[#E8E8DE] px-3 sm:px-5 py-2 sm:py-2.5 shadow-lg">
               <span className="relative flex h-2 w-2">
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#FF5C26] opacity-75" />
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-[#FF5C26]" />
               </span>
-              <span className="text-sm font-semibold text-[#232627]">Systems That Work While You Sleep</span>
+              <span className="text-xs sm:text-sm font-semibold text-[#232627]">Systems That Work While You Sleep</span>
             </div>
           </div>
 
@@ -43,7 +43,7 @@ export function Hero() {
           <div className={`transition-all duration-1000 delay-200 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}>
-            <h1 className="text-center text-5xl font-bold tracking-tight text-[#232627] sm:text-6xl lg:text-7xl xl:text-8xl leading-[1.1]">
+            <h1 className="text-center text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-[#232627] leading-[1.15] sm:leading-[1.1] px-2">
               Your tools don't talk.
               <br />
               <span className="text-[#FF5C26]">We make them.</span>
@@ -51,7 +51,7 @@ export function Hero() {
           </div>
 
           {/* Subheadline */}
-          <p className={`mx-auto mt-8 max-w-3xl text-center text-lg leading-relaxed text-[#2A2A25]/80 sm:text-xl lg:text-2xl transition-all duration-1000 delay-300 ${
+          <p className={`mx-auto mt-6 sm:mt-8 max-w-3xl text-center text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed text-[#2A2A25]/80 transition-all duration-1000 delay-300 px-4 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}>
             The systems layer that connects your scattered tools into one coherent infrastructure. 
@@ -59,51 +59,51 @@ export function Hero() {
           </p>
 
           {/* CTA Buttons */}
-          <div className={`mt-12 flex flex-col items-center justify-center gap-4 sm:flex-row transition-all duration-1000 delay-500 ${
+          <div className={`mt-8 sm:mt-12 flex flex-col items-center justify-center gap-3 sm:gap-4 px-4 sm:flex-row transition-all duration-1000 delay-500 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}>
-            <button className="group relative h-14 w-full sm:w-auto rounded-full bg-[#FF5C26] px-8 text-base font-semibold text-white shadow-xl shadow-[#FF5C26]/30 transition-all hover:bg-[#e14d1f] hover:shadow-2xl hover:shadow-[#FF5C26]/40 hover:scale-105">
+            <button className="group relative h-12 sm:h-14 w-full sm:w-auto rounded-full bg-[#FF5C26] px-6 sm:px-8 text-sm sm:text-base font-semibold text-white shadow-xl shadow-[#FF5C26]/30 transition-all hover:bg-[#e14d1f] hover:shadow-2xl hover:shadow-[#FF5C26]/40 hover:scale-105">
               <span className="flex items-center justify-center gap-2">
                 Book a 15-min call
-                <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
+                <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5 transition-transform group-hover:translate-x-1" />
               </span>
             </button>
-            <button className="h-14 w-full sm:w-auto rounded-full border-2 border-[#232627] bg-white px-8 text-base font-semibold text-[#232627] transition-all hover:bg-[#232627] hover:text-white hover:scale-105">
+            <button className="h-12 sm:h-14 w-full sm:w-auto rounded-full border-2 border-[#232627] bg-white px-6 sm:px-8 text-sm sm:text-base font-semibold text-[#232627] transition-all hover:bg-[#232627] hover:text-white hover:scale-105">
               See how it works
             </button>
           </div>
 
           {/* Trust Indicators - Feature Pills */}
-          <div className={`mt-16 flex flex-wrap items-center justify-center gap-4 transition-all duration-1000 delay-700 ${
+          <div className={`mt-10 sm:mt-16 flex flex-wrap items-center justify-center gap-2 sm:gap-4 px-4 transition-all duration-1000 delay-700 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}>
-            <div className="flex items-center gap-2 rounded-full bg-white/80 backdrop-blur-sm border border-[#E8E8DE] px-5 py-3 shadow-sm">
-              <Zap className="h-4 w-4 text-[#FF5C26]" />
-              <span className="text-sm font-medium text-[#232627]">1-7 day delivery</span>
+            <div className="flex items-center gap-1.5 sm:gap-2 rounded-full bg-white/80 backdrop-blur-sm border border-[#E8E8DE] px-3 sm:px-5 py-2 sm:py-3 shadow-sm">
+              <Zap className="h-3 w-3 sm:h-4 sm:w-4 text-[#FF5C26] flex-shrink-0" />
+              <span className="text-xs sm:text-sm font-medium text-[#232627] whitespace-nowrap">1-7 day delivery</span>
             </div>
-            <div className="flex items-center gap-2 rounded-full bg-white/80 backdrop-blur-sm border border-[#E8E8DE] px-5 py-3 shadow-sm">
-              <Clock className="h-4 w-4 text-[#FF5C26]" />
-              <span className="text-sm font-medium text-[#232627]">No long-term contracts</span>
+            <div className="flex items-center gap-1.5 sm:gap-2 rounded-full bg-white/80 backdrop-blur-sm border border-[#E8E8DE] px-3 sm:px-5 py-2 sm:py-3 shadow-sm">
+              <Clock className="h-3 w-3 sm:h-4 sm:w-4 text-[#FF5C26] flex-shrink-0" />
+              <span className="text-xs sm:text-sm font-medium text-[#232627] whitespace-nowrap">No contracts</span>
             </div>
-            <div className="flex items-center gap-2 rounded-full bg-white/80 backdrop-blur-sm border border-[#E8E8DE] px-5 py-3 shadow-sm">
-              <Shield className="h-4 w-4 text-[#FF5C26]" />
-              <span className="text-sm font-medium text-[#232627]">30-day support included</span>
+            <div className="flex items-center gap-1.5 sm:gap-2 rounded-full bg-white/80 backdrop-blur-sm border border-[#E8E8DE] px-3 sm:px-5 py-2 sm:py-3 shadow-sm">
+              <Shield className="h-3 w-3 sm:h-4 sm:w-4 text-[#FF5C26] flex-shrink-0" />
+              <span className="text-xs sm:text-sm font-medium text-[#232627] whitespace-nowrap">30-day support</span>
             </div>
           </div>
 
           {/* Social Proof / Client Logos Section */}
-          <div className={`mt-20 transition-all duration-1000 delay-900 ${
+          <div className={`mt-12 sm:mt-20 px-4 transition-all duration-1000 delay-900 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}>
-            <p className="text-center text-sm font-medium text-[#2A2A25]/60 uppercase tracking-wide mb-6">
+            <p className="text-center text-xs sm:text-sm font-medium text-[#2A2A25]/60 uppercase tracking-wide mb-4 sm:mb-6">
               Trusted by SMEs & agencies across Malaysia
             </p>
-            <div className="flex items-center justify-center gap-8 opacity-40">
+            <div className="flex items-center justify-center gap-4 sm:gap-8 opacity-40 flex-wrap">
               {/* Placeholder for client logos - you can replace with actual logos */}
-              <div className="h-8 w-24 bg-[#232627]/20 rounded" />
-              <div className="h-8 w-24 bg-[#232627]/20 rounded" />
-              <div className="h-8 w-24 bg-[#232627]/20 rounded" />
-              <div className="h-8 w-24 bg-[#232627]/20 rounded" />
+              <div className="h-6 w-20 sm:h-8 sm:w-24 bg-[#232627]/20 rounded" />
+              <div className="h-6 w-20 sm:h-8 sm:w-24 bg-[#232627]/20 rounded" />
+              <div className="h-6 w-20 sm:h-8 sm:w-24 bg-[#232627]/20 rounded hidden sm:block" />
+              <div className="h-6 w-20 sm:h-8 sm:w-24 bg-[#232627]/20 rounded hidden sm:block" />
             </div>
           </div>
 
