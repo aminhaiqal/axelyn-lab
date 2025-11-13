@@ -1,11 +1,11 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
+import { X, ArrowRight, Zap } from "lucide-react"
 
 export function Intro() {
   const sectionRef = useRef<HTMLElement>(null)
   const [isVisible, setIsVisible] = useState(false)
-  const wordsRef = useRef<HTMLSpanElement[]>([])
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -13,19 +13,10 @@ export function Intro() {
         entries.forEach((entry) => {
           if (entry.isIntersecting && !isVisible) {
             setIsVisible(true)
-            
-            wordsRef.current.forEach((word, index) => {
-              if (word) {
-                setTimeout(() => {
-                  word.style.opacity = "1"
-                  word.style.transform = "translateY(0)"
-                }, index * 100)
-              }
-            })
           }
         })
       },
-      { threshold: 0.2 }
+      { threshold: 0.3 }
     )
 
     if (sectionRef.current) {
@@ -35,102 +26,188 @@ export function Intro() {
     return () => observer.disconnect()
   }, [isVisible])
 
-  const headline = ["Independent.", "Focused.", "Precise."]
+  const problems = [
+    "Your CRM doesn't update your project tracker",
+    "Ad platforms don't feed your reporting dashboard",
+    "Form submissions sit in one app while your team works in another"
+  ]
 
   return (
     <section
       ref={sectionRef}
-      className="relative py-24 sm:py-32 lg:py-40 bg-[#FF5C26] overflow-hidden"
+      className="relative py-24 sm:py-32 bg-[#232627] overflow-hidden"
     >
-      {/* Background gradient orb */}
-      <div
-        className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-gradient-to-br from-[#FF5C26]/80 via-[#FF5C26]/60 to-transparent blur-3xl transition-all duration-[2000ms] ease-out ${
-          isVisible ? "opacity-60 scale-100" : "opacity-0 scale-75"
-        }`}
-      />
+      {/* Animated Background Elements */}
+      <div className="absolute inset-0 overflow-hidden opacity-20">
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#FF5C26] rounded-full blur-3xl animate-pulse-slow" />
+        <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-[#FF5C26] rounded-full blur-3xl animate-pulse-slower" />
+      </div>
 
-      <div className="relative mx-auto max-w-6xl px-6 lg:px-8">
-        {/* Card container */}
-        <div className="relative mx-auto max-w-3xl bg-white rounded-3xl shadow-xl p-12 sm:p-16 text-center overflow-hidden">
-          {/* Headline */}
-          <h2 className="text-3xl font-semibold tracking-tight text-[#232627] sm:text-4xl lg:text-5xl leading-tight">
-            {headline.map((word, index) => (
-              <span
-                key={word}
-                ref={(el) => {
-                  if (el) wordsRef.current[index] = el
-                }}
-                className="inline-block opacity-0 translate-y-4 transition-all duration-700 ease-out mr-3"
-                style={{ transitionDelay: `${index * 100}ms` }}
-              >
-                {word}
+      {/* Grid Pattern Overlay */}
+      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAwIDEwIEwgNDAgMTAgTSAxMCAwIEwgMTAgNDAiIGZpbGw9Im5vbmUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS1vcGFjaXR5PSIwLjAzIiBzdHJva2Utd2lkdGg9IjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=')] opacity-30" />
+
+      <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          
+          {/* Left Side - Problem Statement */}
+          <div className={`transition-all duration-1000 ${
+            isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-12"
+          }`}>
+            <div className="inline-block mb-6">
+              <span className="inline-flex items-center gap-2 rounded-full bg-[#FF5C26]/10 border border-[#FF5C26]/30 px-4 py-2 text-sm font-semibold text-[#FF5C26]">
+                <Zap className="w-4 h-4" />
+                The Problem We Solve
               </span>
-            ))}
-          </h2>
+            </div>
 
-          {/* Paragraph */}
-          <p
-            className={`mt-6 text-lg text-[#2A2A25] sm:text-xl transition-all duration-1000 ease-out delay-500 ${
-              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-            }`}
-          >
-            We design reliable automation frameworks and integration architectures for teams that need results, not experiments.
-          </p>
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+              Most teams aren't slow because they lack talent.
+            </h2>
 
-          {/* Accent line */}
-          <div className="mt-8 flex justify-center">
-            <div
-              className={`h-px w-24 bg-gradient-to-r from-transparent via-[#FF5C26]/50 to-transparent transition-all duration-1000 ease-out delay-700 ${
-                isVisible ? "opacity-100" : "opacity-0"
-              }`}
-            />
+            <p className="text-xl text-white/80 mb-8 leading-relaxed">
+              They're slow because <span className="text-[#FF5C26] font-semibold">their tools don't talk to each other.</span>
+            </p>
+
+            {/* Problem List */}
+            <div className="space-y-4 mb-8">
+              {problems.map((problem, index) => (
+                <div 
+                  key={index}
+                  className={`flex items-start gap-3 transition-all duration-700 ${
+                    isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8"
+                  }`}
+                  style={{ transitionDelay: `${400 + index * 150}ms` }}
+                >
+                  <div className="flex-shrink-0 mt-1">
+                    <X className="w-5 h-5 text-red-400" />
+                  </div>
+                  <p className="text-white/70 text-base leading-relaxed">{problem}</p>
+                </div>
+              ))}
+            </div>
+
+            <div className="p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm">
+              <p className="text-lg text-white/90 leading-relaxed">
+                So people become the glue — copying, pasting, reconciling, reminding.
+              </p>
+              <p className="text-xl font-bold text-[#FF5C26] mt-3">
+                That's not work. That's waste.
+              </p>
+            </div>
           </div>
 
-          {/* Feature pills */}
-          <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
-            {["Fast", "Precise", "Engineered to scale"].map((feature, index) => (
-              <span
-                key={feature}
-                className={`inline-flex items-center rounded-full border border-[#FF5C26] bg-[#E8E8DE] px-4 py-2 text-sm font-medium text-[#232627] shadow-sm transition-all duration-700 ease-out ${
-                  isVisible ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-4 scale-95"
-                }`}
-                style={{ transitionDelay: `${900 + index * 100}ms` }}
-              >
-                {feature}
-              </span>
-            ))}
+          {/* Right Side - Solution Statement */}
+          <div className={`transition-all duration-1000 delay-300 ${
+            isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-12"
+          }`}>
+            <div className="bg-white rounded-3xl p-8 sm:p-10 shadow-2xl relative overflow-hidden">
+              {/* Decorative Element */}
+              <div className="absolute top-0 right-0 w-40 h-40 bg-[#FF5C26]/10 rounded-full blur-3xl" />
+              
+              <div className="relative">
+                <div className="inline-block mb-6">
+                  <div className="w-12 h-12 rounded-2xl bg-[#FF5C26] flex items-center justify-center shadow-lg">
+                    <ArrowRight className="w-6 h-6 text-white" />
+                  </div>
+                </div>
+
+                <h3 className="text-3xl sm:text-4xl font-bold text-[#232627] mb-4 leading-tight">
+                  We're the systems layer that connects everything.
+                </h3>
+
+                <p className="text-lg text-[#2A2A25]/80 mb-6 leading-relaxed">
+                  We take what you already use — Notion, Google Sheets, Slack, Airtable, Meta Ads, Zapier, Make — and engineer automation layers that make them work together seamlessly.
+                </p>
+
+                {/* Result Metrics */}
+                <div className="grid grid-cols-2 gap-4 mb-6">
+                  <div className="bg-[#E8E8DE] rounded-xl p-4">
+                    <div className="text-3xl font-bold text-[#FF5C26] mb-1">80%</div>
+                    <div className="text-xs font-medium text-[#2A2A25]/70 uppercase tracking-wide">Time Saved</div>
+                  </div>
+                  <div className="bg-[#E8E8DE] rounded-xl p-4">
+                    <div className="text-3xl font-bold text-[#FF5C26] mb-1">1-7</div>
+                    <div className="text-xs font-medium text-[#2A2A25]/70 uppercase tracking-wide">Days to Deploy</div>
+                  </div>
+                </div>
+
+                <div className="space-y-3">
+                  {[
+                    "Your team moves faster",
+                    "Manual work disappears",
+                    "Data flows where it needs to go"
+                  ].map((benefit, index) => (
+                    <div key={index} className="flex items-center gap-3">
+                      <div className="w-1.5 h-1.5 rounded-full bg-[#FF5C26]" />
+                      <span className="text-[#232627] font-medium">{benefit}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="mt-8 pt-6 border-t border-[#E8E8DE]">
+                  <p className="text-sm font-semibold text-[#232627] mb-2">No intervention required.</p>
+                  <p className="text-sm text-[#2A2A25]/70">
+                    The best systems are the ones you forget are running.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
+
         </div>
       </div>
 
-      {/* Floating particles */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(6)].map((_, i) => (
+      {/* Floating Connection Lines */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-20">
+        {[...Array(5)].map((_, i) => (
           <div
             key={i}
-            className={`absolute w-1.5 h-1.5 rounded-full bg-white/30 transition-all duration-[3000ms] ease-in-out ${
+            className={`absolute transition-all duration-[3000ms] ${
               isVisible ? "opacity-100" : "opacity-0"
             }`}
             style={{
-              left: `${15 + i * 15}%`,
-              top: `${20 + (i % 3) * 20}%`,
-              animation: isVisible ? `float ${4 + i * 0.5}s ease-in-out infinite` : "none",
-              animationDelay: `${i * 0.3}s`
+              left: `${20 + i * 15}%`,
+              top: `${30 + (i % 2) * 30}%`,
+              animation: isVisible ? `float-line ${5 + i * 0.8}s ease-in-out infinite` : "none",
+              animationDelay: `${i * 0.5}s`,
             }}
-          />
+          >
+            <div className="w-px h-20 bg-gradient-to-b from-transparent via-white to-transparent" />
+          </div>
         ))}
       </div>
 
       <style jsx>{`
-        @keyframes float {
+        @keyframes pulse-slow {
           0%, 100% {
-            transform: translateY(0px) translateX(0px);
+            opacity: 0.3;
+            transform: scale(1);
           }
-          33% {
-            transform: translateY(-20px) translateX(10px);
+          50% {
+            opacity: 0.5;
+            transform: scale(1.1);
           }
-          66% {
-            transform: translateY(-10px) translateX(-10px);
+        }
+        
+        @keyframes pulse-slower {
+          0%, 100% {
+            opacity: 0.2;
+            transform: scale(1);
+          }
+          50% {
+            opacity: 0.4;
+            transform: scale(1.15);
+          }
+        }
+        
+        @keyframes float-line {
+          0%, 100% {
+            transform: translateY(0px);
+            opacity: 0.3;
+          }
+          50% {
+            transform: translateY(-30px);
+            opacity: 0.8;
           }
         }
       `}</style>

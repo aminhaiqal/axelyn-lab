@@ -6,6 +6,7 @@ import { Process } from "@/components/process"
 import { Pricing } from "@/components/pricing"
 import { FinalCTA } from "@/components/final-cta"
 import { Footer } from "@/components/footer"
+import { Comparison } from "@/components/comparison"
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
       <WhatWeDo />
       <CaseHighlights />
       <Process />
+      <Comparison />
       <Pricing />
       <FinalCTA />
       <Footer />

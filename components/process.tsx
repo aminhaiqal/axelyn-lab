@@ -1,34 +1,39 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
-import { ArrowRight } from "lucide-react"
+import { Search, Zap, TrendingUp } from "lucide-react"
 
 const steps = [
   {
     number: "1",
     title: "Intro & Audit",
-    description: "15-minute call",
-    detail: "We map your workflow and identify what's slowing you down",
+    duration: "15 minutes",
+    icon: Search,
+    detail: "We learn your workflow, identify bottlenecks, and scope what's possible.",
+    highlights: ["Map your workflow", "Identify bottlenecks", "Scope possibilities"]
   },
   {
     number: "2",
     title: "Build & Deliver",
-    description: "1–7 days",
-    detail: "Fast, focused implementation with zero disruption",
+    duration: "1–7 days",
+    icon: Zap,
+    detail: "We design and deploy your automation system. Fast, focused, functional.",
+    highlights: ["Design system", "Deploy automation", "Test & verify"]
   },
   {
     number: "3",
     title: "Operate & Scale",
-    description: "Optional retainer",
-    detail: "Ongoing support as your systems grow",
+    duration: "Optional",
+    icon: TrendingUp,
+    detail: "Some clients want ongoing support as their systems grow. We offer retainers for maintenance, optimization, and expansion.",
+    highlights: ["Ongoing maintenance", "System optimization", "Continuous expansion"]
   },
 ]
 
 export function Process() {
   const sectionRef = useRef<HTMLElement>(null)
   const [isVisible, setIsVisible] = useState(false)
-  const [hoveredStep, setHoveredStep] = useState<number | null>(null)
-  const stepsRef = useRef<HTMLDivElement[]>([])
+  const [activeStep, setActiveStep] = useState<number | null>(null)
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -49,97 +54,150 @@ export function Process() {
   return (
     <section
       ref={sectionRef}
-      className="relative py-24 sm:py-32 lg:py-40 bg-gradient-to-b from-[#FFFFFF] via-[#E8E8DE]/20 to-[#FFFFFF] overflow-hidden"
+      className="relative py-24 sm:py-32 bg-[#FFFFFF] overflow-hidden"
     >
-      <div className="relative mx-auto max-w-4xl px-6 lg:px-8">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 overflow-hidden opacity-30">
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#FF5C26]/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-[#232627]/5 rounded-full blur-3xl" />
+      </div>
+
+      <div className="relative mx-auto max-w-6xl px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto">
+        <div className="text-center max-w-2xl mx-auto mb-20">
           <h2
-            className={`text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-[#232627] transition-all duration-1000 ease-out ${
+            className={`text-4xl sm:text-5xl font-bold text-[#232627] mb-4 transition-all duration-1000 ease-out ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}
           >
             How We Work
           </h2>
           <p
-            className={`mt-4 text-lg text-[#2A2A25]/80 transition-all duration-1000 ease-out delay-200 ${
+            className={`text-xl text-[#2A2A25]/70 transition-all duration-1000 ease-out delay-200 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}
           >
-            Three steps. No complexity. Just results.
+            No long-term contracts. No enterprise sales cycles. Just fast, focused execution.
           </p>
         </div>
 
-        {/* Vertical Steps */}
-        <div className="mt-16 relative flex flex-col gap-12">
-          {steps.map((step, index) => (
-            <div
-              key={index}
-              ref={(el) => {
-                if (el) stepsRef.current[index] = el
-              }}
-              className={`relative flex items-start gap-6 transition-all duration-700 ease-out ${
-                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
-              }`}
-              style={{ transitionDelay: `${200 + index * 150}ms` }}
-              onMouseEnter={() => setHoveredStep(index)}
-              onMouseLeave={() => setHoveredStep(null)}
-            >
-              {/* Number badge */}
-              <div className="relative flex-shrink-0">
-                <div
-                  className={`flex h-14 w-14 items-center justify-center rounded-full font-semibold text-white text-xl transition-all duration-500 ${
-                    hoveredStep === index
-                      ? "bg-[#FF5C26] scale-110 shadow-lg"
-                      : "bg-[#2A2A25]"
-                  }`}
-                >
-                  {step.number}
+        {/* Steps Grid */}
+        <div className="grid md:grid-cols-3 gap-8 relative">
+          {/* Connection Lines - Desktop */}
+          <div className="hidden md:block absolute top-24 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-[#E8E8DE] to-transparent" />
+          
+          {steps.map((step, index) => {
+            const Icon = step.icon
+            const isActive = activeStep === index
+            
+            return (
+              <div
+                key={index}
+                className={`relative transition-all duration-700 ease-out ${
+                  isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
+                }`}
+                style={{ transitionDelay: `${300 + index * 200}ms` }}
+                onMouseEnter={() => setActiveStep(index)}
+                onMouseLeave={() => setActiveStep(null)}
+              >
+                {/* Card */}
+                <div className={`relative bg-white rounded-3xl border-2 p-8 transition-all duration-500 h-full ${
+                  isActive 
+                    ? "border-[#FF5C26] shadow-2xl transform scale-105" 
+                    : "border-[#E8E8DE] shadow-lg hover:shadow-xl"
+                }`}>
+                  
+                  {/* Step Number Badge */}
+                  <div className="absolute -top-6 left-1/2 transform -translate-x-1/2">
+                    <div className={`w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl transition-all duration-500 ${
+                      isActive 
+                        ? "bg-[#FF5C26] text-white scale-110 shadow-lg" 
+                        : "bg-[#232627] text-white"
+                    }`}>
+                      {step.number}
+                    </div>
+                  </div>
+
+                  {/* Icon */}
+                  <div className="flex justify-center mt-8 mb-6">
+                    <div className={`p-4 rounded-2xl transition-all duration-500 ${
+                      isActive 
+                        ? "bg-[#FF5C26]/10 scale-110" 
+                        : "bg-[#E8E8DE]"
+                    }`}>
+                      <Icon className={`w-8 h-8 transition-colors duration-500 ${
+                        isActive ? "text-[#FF5C26]" : "text-[#232627]"
+                      }`} />
+                    </div>
+                  </div>
+
+                  {/* Content */}
+                  <div className="text-center">
+                    <h3 className="text-2xl font-bold text-[#232627] mb-2">
+                      {step.title}
+                    </h3>
+                    <p className="text-sm font-semibold text-[#FF5C26] mb-4">
+                      {step.duration}
+                    </p>
+                    <p className="text-sm text-[#2A2A25]/80 leading-relaxed mb-6">
+                      {step.detail}
+                    </p>
+
+                    {/* Highlights */}
+                    <div className="space-y-2">
+                      {step.highlights.map((highlight, i) => (
+                        <div 
+                          key={i}
+                          className="flex items-center justify-center gap-2 text-xs text-[#2A2A25]/70"
+                        >
+                          <span className={`w-1.5 h-1.5 rounded-full transition-colors duration-500 ${
+                            isActive ? "bg-[#FF5C26]" : "bg-[#232627]"
+                          }`} />
+                          <span>{highlight}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Decorative Corner */}
+                  <div className={`absolute bottom-0 right-0 w-20 h-20 transition-opacity duration-500 ${
+                    isActive ? "opacity-100" : "opacity-0"
+                  }`}>
+                    <div className="absolute bottom-0 right-0 w-full h-full bg-gradient-to-tl from-[#FF5C26]/10 to-transparent rounded-tl-full" />
+                  </div>
                 </div>
               </div>
-
-              {/* Step Card */}
-              <div className="flex-1 bg-white rounded-3xl border border-[#E8E8DE] p-6 shadow-sm transition-all duration-500 hover:shadow-lg">
-                <h3 className="text-xl font-semibold text-[#232627]">{step.title}</h3>
-                <p className="mt-1 text-sm font-medium text-[#2A2A25]/70">{step.description}</p>
-                <p className="mt-3 text-sm leading-relaxed text-[#2A2A25]/80">{step.detail}</p>
-              </div>
-
-              {/* Arrow connector - desktop */}
-              {index < steps.length - 1 && (
-                <div className="hidden sm:block absolute top-7 left-[72px] h-0 w-10">
-                  <ArrowRight className="h-6 w-6 text-[#FF5C26] rotate-90" />
-                </div>
-              )}
-            </div>
-          ))}
+            )
+          })}
         </div>
 
-        {/* Bottom Tagline */}
+        {/* Bottom CTA */}
         <div
-          className={`mt-12 text-center transition-all duration-1000 ease-out delay-1000 ${
+          className={`mt-16 text-center transition-all duration-1000 ease-out delay-1000 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
-          <p className="text-sm text-[#2A2A25]/70">
-            Fast delivery. Clear process. Zero surprises.
-          </p>
+          <div className="inline-block bg-[#E8E8DE] rounded-full px-8 py-4">
+            <p className="text-base font-medium text-[#232627]">
+              Most projects go live in <span className="text-[#FF5C26] font-bold">1–7 days</span>. Not weeks. Not months.
+            </p>
+          </div>
         </div>
       </div>
 
-      {/* Optional Floating Dots */}
+      {/* Animated Dots */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(4)].map((_, i) => (
+        {[...Array(6)].map((_, i) => (
           <div
             key={i}
-            className={`absolute w-2 h-2 rounded-full bg-[#FF5C26]/30 transition-all duration-[2000ms] ease-in-out ${
+            className={`absolute w-2 h-2 rounded-full bg-[#FF5C26]/20 transition-all duration-[2000ms] ease-in-out ${
               isVisible ? "opacity-100" : "opacity-0"
             }`}
             style={{
-              left: `${20 + i * 20}%`,
-              top: `${25 + (i % 2) * 40}%`,
-              animation: isVisible ? `float-slow ${5 + i * 0.8}s ease-in-out infinite` : "none",
-              animationDelay: `${i * 0.3}s`,
+              left: `${15 + i * 15}%`,
+              top: `${20 + (i % 3) * 30}%`,
+              animation: isVisible ? `float-slow ${4 + i * 0.5}s ease-in-out infinite` : "none",
+              animationDelay: `${i * 0.4}s`,
             }}
           />
         ))}
@@ -151,7 +209,7 @@ export function Process() {
             transform: translateY(0px) translateX(0px);
           }
           50% {
-            transform: translateY(-15px) translateX(8px);
+            transform: translateY(-20px) translateX(10px);
           }
         }
       `}</style>

@@ -7,9 +7,9 @@ import "./globals.css"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Axelyn | Precision Automation & Integration Systems",
+  title: "Axelyn | SME Automation Partner",
   description:
-    "Small studio. Global standards. Axelyn builds precision automation and integration systems that eliminate manual work and unlock speed.",
+    "Systems that work while you sleep. We connect your scattered tools into one coherent infrastructure. Automation workflows, live dashboards, and integrations that eliminate manual work. Fast delivery in 1-7 days.",
   generator: "v0.app",
   icons: {
     icon: [
