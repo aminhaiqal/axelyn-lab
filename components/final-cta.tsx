@@ -132,7 +132,7 @@ export function FinalCTA() {
           className="group h-14 w-full sm:w-auto rounded-full border-[#2A2A25] bg-[#232627]/50 backdrop-blur-sm px-8 text-base font-medium text-[#E8E8DE] transition-all duration-300 hover:bg-[#232627] hover:border-[#2A2A25] hover:scale-105"
         >
           <Mail className="mr-2 h-4 w-4" />
-          amin@axelyn.com
+          aminh@axelyn.com
         </Button>
       </div>
 

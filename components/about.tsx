@@ -7,7 +7,7 @@ export function About() {
             About Axelyn
           </h2>
           <p className="mt-6 text-pretty text-lg leading-relaxed text-muted-foreground">
-            Founded by Amin Haiqal, Axelyn is a Malaysia-based technology consultancy focused on building
+            Founded by aminh Haiqal, Axelyn is a Malaysia-based technology consultancy focused on building
             small-but-powerful solutions that deliver real business value. From automation scripts to chatbots and
             integrations, Axelyn helps clients move faster and smarter.
           </p>

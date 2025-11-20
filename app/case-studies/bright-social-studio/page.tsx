@@ -2,10 +2,12 @@
 
 import Image from "next/image"
 import { useState } from "react"
-import { ChevronDown, ChevronUp } from "lucide-react"
+import { ArrowLeft, ChevronDown, ChevronUp } from "lucide-react"
+import { Dialog, DialogContent } from "@/components/ui/dialog";
 
 export default function BrightSocialStudio() {
   const [expandedSections, setExpandedSections] = useState<string[]>([])
+  const [previewImage, setPreviewImage] = useState<string | null>(null);
 
   const toggleSection = (section: string) => {
     setExpandedSections(prev =>
@@ -16,8 +18,21 @@ export default function BrightSocialStudio() {
   }
 
   return (
-    <section className="border-t border-border/50 py-24 sm:py-32 lg:py-40 bg-background">
-      <div className="mx-auto max-w-4xl px-6 lg:px-8">
+    <section className="border-t border-border/50 py-24 bg-background">
+      <div className="border-b border-border/50 bg-background/80 backdrop-blur-sm sticky top-0 z-10">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="flex items-center h-16">
+            <button 
+              onClick={() => window.history.back()}
+              className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors group"
+            >
+              <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
+              <span>Back to home</span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div className="mx-auto max-w-4xl px-6 lg:px-8 py-8">
         {/* Header */}
         <div className="mb-12">
           <p className="text-sm font-medium text-muted-foreground mb-4 tracking-wide uppercase">
@@ -76,7 +91,7 @@ export default function BrightSocialStudio() {
             Want similar results for your team?
           </p>
           <a
-            href="mailto:amin@axelyn.com?subject=Interested in Automation&body=Hi Amin, I'm interested in learning how Axelyn can help automate our workflows."
+            href="mailto:aminh@axelyn.com?subject=Interested in Automation&body=Hi aminh, I'm interested in learning how Axelyn can help automate our workflows."
             className="inline-flex items-center justify-center rounded-xl bg-foreground px-8 py-4 text-background text-base font-semibold transition-all hover:bg-foreground/90 hover:scale-105 shadow-lg"
           >
             Book a Free 15-Min Audit
@@ -410,33 +425,62 @@ export default function BrightSocialStudio() {
                 <ChevronDown className="w-5 h-5 text-muted-foreground" />
               )}
             </button>
+
             {expandedSections.includes('dashboard') && (
               <div className="px-6 pb-6 border-t border-border pt-6">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div className="rounded-xl overflow-hidden border border-border bg-muted aspect-video flex items-center justify-center">
+
+                  {/* Screenshot 1 */}
+                  <button
+                    onClick={() => setPreviewImage("/images/Axelyn_Bright_Social_Studio_page1.jpg")}
+                    className="rounded-xl overflow-hidden border border-border bg-muted"
+                  >
                     <Image
-                      src="/images/dashboard-page-1-overview.jpg"
+                      src="/images/Axelyn_Bright_Social_Studio_page1.jpg"
                       alt="Performance Overview"
-                      width={600}
-                      height={400}
-                      className="object-cover w-full h-full"
+                      width={1200}
+                      height={800}
+                      className="w-full h-auto"
                     />
-                  </div>
-                  <div className="rounded-xl overflow-hidden border border-border bg-muted aspect-video flex items-center justify-center">
+                  </button>
+
+                  {/* Screenshot 2 */}
+                  <button
+                    onClick={() => setPreviewImage("/images/Axelyn_Bright_Social_Studio_page2.jpg")}
+                    className="rounded-xl overflow-hidden border border-border bg-muted"
+                  >
                     <Image
-                      src="/images/dashboard-page-2-client.jpg"
+                      src="/images/Axelyn_Bright_Social_Studio_page2.jpg"
                       alt="Client Breakdown"
-                      width={600}
-                      height={400}
-                      className="object-cover w-full h-full"
+                      width={1200}
+                      height={800}
+                      className="w-full h-auto"
                     />
-                  </div>
+                  </button>
+
                 </div>
-                <p className="text-sm text-muted-foreground mt-4 italic">
-                  Four pages guide teams from overview to action in under 5 minutes
+
+                {/* Footnote */}
+                <p className="text-xs text-muted-foreground mt-4 italic">
+                  *These screenshots are previews from the Axelyn Bright Social Studio dashboard.
                 </p>
               </div>
             )}
+
+            {/* FULL IMAGE PREVIEW MODAL */}
+            <Dialog open={!!previewImage} onOpenChange={() => setPreviewImage(null)}>
+              <DialogContent className="max-w-4xl">
+                {previewImage && (
+                  <Image
+                    src={previewImage}
+                    alt="Full Preview"
+                    width={1600}
+                    height={1200}
+                    className="w-full h-auto rounded-lg"
+                  />
+                )}
+              </DialogContent>
+            </Dialog>
           </div>
 
           {/* Scalability Roadmap */}
@@ -537,7 +581,7 @@ export default function BrightSocialStudio() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <a
-                href="mailto:amin@axelyn.com?subject=Interested in Automation&body=Hi Amin, I'm interested in learning how Axelyn can help automate our workflows."
+                href="mailto:aminh@axelyn.com?subject=Interested in Automation&body=Hi aminh, I'm interested in learning how Axelyn can help automate our workflows."
                 className="inline-flex items-center justify-center rounded-xl bg-foreground px-8 py-4 text-background text-base font-semibold transition-all hover:bg-foreground/90 hover:scale-105 shadow-lg"
               >
                 Book a Free 15-Min Audit

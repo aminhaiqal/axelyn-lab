@@ -82,13 +82,13 @@ export function Footer() {
           {/* Contact info */}
           <div className="space-y-3">
             <a 
-              href="mailto:amin@axelyn.com" 
+              href="mailto:aminh@axelyn.com" 
               className="group flex items-center gap-3 text-sm text-[#2A2A25] hover:text-[#FF5C26] transition-colors duration-300"
             >
               <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#E8E8DE] border border-[#DAD9D3] group-hover:border-[#FF5C26] transition-colors duration-300">
                 <Mail className="h-4 w-4 text-[#FF5C26]" />
               </div>
-              <span>amin@axelyn.com</span>
+              <span>aminh@axelyn.com</span>
             </a>
             
             <div className="flex items-center gap-3 text-sm text-[#2A2A25]">
